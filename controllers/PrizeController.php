@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\components\PrizeType;
+use app\components\prizeType\LoyalityType;
+use app\components\prizeType\MoneyType;
 use app\components\Roulette;
 use Yii;
 use yii\filters\AccessControl;
@@ -18,7 +20,7 @@ class PrizeController extends Controller
         $roulette = new Roulette();
         $prize = $roulette->spin();
         $prizeData = $prize->get();
-        $this->_addPrizeToUser($prize);
+        $prize->addTo(\Yii::$app->user);
 
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
@@ -26,15 +28,6 @@ class PrizeController extends Controller
             'success' => true,
             'data' => $prizeData
         ];
-    }
-
-    /**
-     * Add prize to current user
-     *
-     * @param PrizeType $prize
-     */
-    private function _addPrizeToUser(PrizeType $prize) {
-
     }
 
     /**

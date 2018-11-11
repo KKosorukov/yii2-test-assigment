@@ -6,10 +6,13 @@ use yii\base\Model;
 use yii\db\ActiveRecord;
 
 class Prize extends ActiveRecord {
-    public $id;
-    public $count;
-    public $description;
-    public $img;
+
+    public function rules()
+    {
+        return [
+            [['id', 'count', 'description', 'img'], 'safe'],
+        ];
+    }
 
     /**
      * @inheritdoc

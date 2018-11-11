@@ -9,12 +9,6 @@ use app\models\LoyalityAccout;
 
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
-    public $id;
-    public $username;
-    public $password;
-    public $accessToken;
-    public $auth_key;
-
     /**
      * @inheritdoc
      */

@@ -6,9 +6,12 @@ use yii\base\Model;
 use yii\db\ActiveRecord;
 
 class LoyalityAccout extends ActiveRecord {
-    public $id;
-    public $user_id;
-    public $sum;
+    public function rules()
+    {
+        return [
+            [['id', 'user_id', 'sum'], 'safe'],
+        ];
+    }
 
     /**
      * @inheritdoc

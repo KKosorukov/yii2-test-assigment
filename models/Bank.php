@@ -6,15 +6,19 @@ use yii\base\Model;
 use yii\db\ActiveRecord;
 
 class Bank extends ActiveRecord {
-    public $id;
-    public $name;
-
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
         return 'banks';
+    }
+
+    public function rules()
+    {
+        return [
+            [['id', 'name', 'provider'], 'safe'],
+        ];
     }
 
     /**
