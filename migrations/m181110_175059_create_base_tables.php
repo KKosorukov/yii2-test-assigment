@@ -2,6 +2,8 @@
 
 use yii\db\Migration;
 use yii\db\Schema;
+use app\models\User;
+use yii;
 
 /**
  * Class m181110_175059_create_base_tables
@@ -57,6 +59,30 @@ class m181110_175059_create_base_tables extends Migration
             'id' => $this->primaryKey(),
             'amount' => $this->integer()->defaultValue(10000)
         ]);
+
+        $this->_fillTables();
+    }
+
+    /**
+     * Fill Tables
+     */
+    private function _fillTables() {
+        /**
+         * Users
+         */
+
+        $firstUser = new User();
+        $firstUser->username = 'admin';
+        $firstUser->password = Yii::$app->getSecurity()->generatePasswordHash('123456');
+        $firstUser->save();
+
+        /**
+         * Prizes
+         */
+
+        /**
+         * Money
+         */
     }
 
     /**

@@ -4,6 +4,10 @@ namespace app\components;
 
 use yii\base\Component;
 
-class PrizeType extends Component {
+abstract class PrizeType extends Component {
+    private $prizeData = null;
 
+    public function setData($data) {
+        $this->prizeData = $data;
+    }
 }

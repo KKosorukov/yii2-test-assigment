@@ -12,6 +12,12 @@ class LoyalityType extends PrizeType {
 
     public function get() {
         $bonusRand = rand(self::MIN_BONUS, self::MAX_BONUS);
+
+        $this->setData([
+            'data' => $bonusRand,
+            'type' => 'bonus'
+        ]);
+
         return $bonusRand;
     }
 }

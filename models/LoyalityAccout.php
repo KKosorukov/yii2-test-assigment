@@ -11,6 +11,14 @@ class LoyalityAccout extends ActiveRecord {
     public $sum;
 
     /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'loyality_accounts';
+    }
+
+    /**
      * Has one user
      *
      * @return \yii\db\ActiveQuery

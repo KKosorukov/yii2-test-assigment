@@ -22,6 +22,6 @@ class Roulette extends Component {
             GiftType::class // Prize bonus
         ][$numRand];
 
-        return new ($choosed)->get();
+        return new $choosed;
     }
 }

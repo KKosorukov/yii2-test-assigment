@@ -12,6 +12,14 @@ class BankAccount extends ActiveRecord {
     public $bank_id;
 
     /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'bank_accounts';
+    }
+
+    /**
      * Has one bank
      *
      * @return \yii\db\ActiveQuery

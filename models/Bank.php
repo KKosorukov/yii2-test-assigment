@@ -10,6 +10,14 @@ class Bank extends ActiveRecord {
     public $name;
 
     /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'banks';
+    }
+
+    /**
      * Has many accounts
      *
      * @return mixed

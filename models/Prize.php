@@ -10,4 +10,12 @@ class Prize extends ActiveRecord {
     public $count;
     public $description;
     public $img;
+
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'prizes';
+    }
 }

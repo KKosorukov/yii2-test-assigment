@@ -12,6 +12,12 @@ class MoneyType extends PrizeType {
 
     public function get() {
         $moneyRand = rand(self::MIN_MONEY, self::MAX_MONEY);
+
+        $this->setData([
+            'data' => $moneyRand,
+            'type' => 'money'
+        ]);
+
         return $moneyRand;
     }
 }

@@ -17,10 +17,14 @@ class PrizeController extends Controller
     public function actionGet() {
         $roulette = new Roulette();
         $prize = $roulette->spin();
+        $prizeData = $prize->get();
         $this->_addPrizeToUser($prize);
+
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
         return [
             'success' => true,
-            'data' => $prize
+            'data' => $prizeData
         ];
     }
 
