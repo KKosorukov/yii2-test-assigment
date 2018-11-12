@@ -10,14 +10,28 @@ use yii\web\User;
 
 class GiftType extends PrizeType {
 
+    /**
+     * Get the prize
+     *
+     * @return array|null
+     */
     public function get() {
-        // @TODO Here will be random choosing of prize model from DB
-
-        $model = Prize::find()
+        $model = Prize::find(['count', '>', 0])
             ->orderBy(new \yii\db\Expression('rand()'))
             ->limit(1)
             ->one();
 
+        if(!$model) {
+            // No gifts more
+            return [
+                'data' => [
+                    'img' => null,
+                    'description' => null,
+                    'id' => -1
+                ],
+                'type' => 'prize'
+            ];
+        }
 
         $this->setData([
             'data' => [
@@ -27,6 +41,9 @@ class GiftType extends PrizeType {
             ],
             'type' => 'prize'
         ]);
+
+        $model->count--;
+        $model->save();
 
         return $this->prizeData;
     }

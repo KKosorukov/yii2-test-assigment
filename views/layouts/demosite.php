@@ -23,7 +23,6 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <script src="/js/main.js"></script>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -43,6 +42,7 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+<script src="/js/main.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>

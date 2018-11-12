@@ -34,7 +34,7 @@ class LoyalityType extends PrizeType {
            $loyalityAccount->user_id = $user->id;
         }
 
-        $loyalityAccount->sum = $this->prizeData['data'];
+        $loyalityAccount->sum += $this->prizeData['data'];
         if(!$loyalityAccount->save()) {
             // @TODO Do something exceiption
         }

@@ -23,6 +23,11 @@ use yii\bootstrap\ActiveForm;
 
 
 <h1>Roulette spinner!</h1>
-<h2>Hi, <?=$user->password ?>!</h2>
+<h2>Hi, <?=$user->username ?>!</h2>
 
 <?= Html::submitButton('Spin the roulette!', ['class' => 'btn btn-primary', 'name' => 'spin-btn', 'id' => 'spin-btn']) ?>
+
+<div class="row">
+    <div class="col-md-4" id="prizeCont"></div>
+    <div class="col-md-4" id="prizeDescription"></div>
+</div>
